@@ -1,0 +1,19 @@
+﻿@model List<SkillsTest.Models.Answer>
+
+@{
+    Layout = "_Layout";
+}
+
+@foreach (var question in ViewBag.Questions)
+{
+    <strong>
+        @question.Content
+    </strong>
+    <br />
+
+    @foreach (var item in Model)
+    {
+        <input type="radio" value="@(item.Id)" name="Question@(item.Id)">
+        <lable>Hahahahahahahahhaahaha</lable>
+    }
+}

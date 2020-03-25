@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Category";
+}
+
+<div class="container">
+    <div class="row col-md-12">
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-danger btn-category-skill" href='@Url.Action("Create", "SkillsTests",
+                new { CategoryId = 2 })'>HTML, CSS</a>
+        </div>
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-warning btn-category-skill">Javascript</a>
+        </div>
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-primary btn-category-skill">ASP.Net MVC</a>
+        </div>
+    </div>
+
+    <div class="row col-md-12 mt-3 mb-3">
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-secondary btn-category-skill">Ruby</a>
+        </div>
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-success btn-category-skill">Python</a>
+        </div>
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-info btn-category-skill">Java</a>
+        </div>
+    </div>
+
+    <div class="row col-md-12">
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-dark btn-category-skill">C/C++</a>
+        </div>
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-danger btn-category-skill">PHP</a>
+        </div>
+        <div class="col-sm col-md-4 text-light">
+            <a class="btn btn-warning btn-category-skill">Shell</a>
+        </div>
+    </div>
+</div>

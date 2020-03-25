@@ -1,0 +1,8 @@
+.vs/
+bin/
+obj/
+Debug/
+Release/
+project.lock.json
+project.fragment.lock.json
+artifacts/
