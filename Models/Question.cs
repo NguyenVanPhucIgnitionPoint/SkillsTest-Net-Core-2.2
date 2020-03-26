@@ -12,5 +12,10 @@ namespace SkillsTest.Models
         public Category Category { get; set; }
         public string Content { get; set; }
         public List<Answer> Answers { get; set; }
+        public string SelectedAnswer { set; get; }
+        public Question()
+        {
+            Answers = new List<Answer>();
+        }
     }
 }

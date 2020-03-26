@@ -1,12 +1,43 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿@model SkillsTest.Models.Category
 
-    @ViewBag.numberQuestion / @ViewBag.totalQuestion
+@{
+    Layout = "_Layout";
+}
 
-</body>
-</html>
+@*@for (var i = 0; i < ViewBag.Questions.Count(); i++)
+    {
+        <p>@Model.Questions[i].Content</p>
+
+        @for (var j = 0; j < Model.Questions[i].Answers.Count(); j++)
+        {
+            @Html.RadioButtonFor(m => m.Questions[i].SelectedAnswer, Model.Questions[i].Answers[j].Id, new { id = "Question" + i.ToString() + "Answer" + j.ToString() })
+            <label for="Question@(i)Answer@(j)">@Model.Questions[i].Answers[j].Id</label>
+        }
+    }*@
+
+@using (Html.BeginForm())
+{
+    <table class="table table-bordered table-striped">
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+            var question = Model.Questions[i];
+            <tr>
+                <td>
+                    <strong> @question.Content </strong>
+                    <br />
+                    @for (var j = 1; j < question.Answers.Count; j++)
+                    {
+                        @Html.RadioButtonFor(m => m.Questions[i].SelectedAnswer[j], question.Answers[j].Id, new { id = "Question" + i.ToString() + "Answer" + j.ToString() })
+                        <label for="Question@(i)Answer@(j)">@question.Answers[j].Content</label>
+                        <br />
+                    }
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </td>
+        </tr>
+    </table>
+}

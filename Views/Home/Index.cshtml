@@ -5,8 +5,8 @@
 <div class="container">
     <div class="row col-md-12">
         <div class="col-sm col-md-4 text-light">
-            <a class="btn btn-danger btn-category-skill" href='@Url.Action("Create", "SkillsTests",
-                new { CategoryId = 2 })'>HTML, CSS</a>
+            <a class="btn btn-danger btn-category-skill" href='@Url.Action("Index", "SkillsTests",
+                new { CategoryId = 1 })'>HTML, CSS</a>
         </div>
         <div class="col-sm col-md-4 text-light">
             <a class="btn btn-warning btn-category-skill">Javascript</a>
@@ -18,7 +18,8 @@
 
     <div class="row col-md-12 mt-3 mb-3">
         <div class="col-sm col-md-4 text-light">
-            <a class="btn btn-secondary btn-category-skill">Ruby</a>
+            <a class="btn btn-secondary btn-category-skill" href='@Url.Action("Index", "SkillsTests",
+                new { CategoryId = 2 })'>Ruby</a>
         </div>
         <div class="col-sm col-md-4 text-light">
             <a class="btn btn-success btn-category-skill">Python</a>

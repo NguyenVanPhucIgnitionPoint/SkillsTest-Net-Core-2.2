@@ -22,39 +22,25 @@ namespace SkillsTest.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index(int numberQuestion, int totalQuestion)
+        public IActionResult Index(int CategoryId)
         {
-            ViewBag.numberQuestion = numberQuestion;
-            ViewBag.totalQuestion = totalQuestion;
-            return View();
+            var category = new Category();
+            var questios = _context.Questions.Where(q => q.CategoryId == CategoryId);
+
+            foreach (var question in questios)
+            {
+                var answers = _context.Answers.Where(a => a.QuestionId == question.Id);
+                foreach (var answer in answers)
+                {
+                    question.Answers.Add(answer);
+                }
+                category.Questions.Add(question);
+            }
+            return View(category);
         }
-
-        [Obsolete]
-        public IActionResult Create(int CategoryId)
+        [HttpGet]
+        public IActionResult Create()
         {
-            ViewBag.CategoryTest = CategoryId;
-
-            var category = _context.Categories.Find(CategoryId);
-            
-            var questions = _context.Questions.ToList();
-            ViewBag.Questions = questions;
-
-         
-
-
-            //var answers = Model.Where(x => x.QuestionId == question.Id).ToList();
-            // TopBusiness top = new TopBusiness();
-            // var answers = top.GetListAnswer(@question.Id);
-
-            //TopBusiness top = new TopBusiness();
-            //var answers = top.GetListAnswer(questions.First().Id);
-            //var answers = questions.First().Answers.ToList();
-            //ViewBag.AnswerList = answers;
-
-
-
-
-
             return View();
         }
 
@@ -65,9 +51,6 @@ namespace SkillsTest.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Results")] Result result)
         {
-
-
-
             _context.Add(result);
             await _context.SaveChangesAsync();
 
